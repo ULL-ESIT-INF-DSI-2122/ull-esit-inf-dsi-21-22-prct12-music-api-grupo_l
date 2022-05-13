@@ -1,0 +1,8 @@
+{
+  "entryPoints": [
+      "./src/exercise-1.ts",
+      "./src/exercise-2.ts",
+      "./src/exercise-3.ts"
+  ],
+  "out": "./docs"
+}

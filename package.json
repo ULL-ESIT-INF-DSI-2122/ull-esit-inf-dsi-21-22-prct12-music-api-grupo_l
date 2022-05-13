@@ -1,0 +1,42 @@
+{
+  "name": "ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l",
+  "version": "1.0.0",
+  "description": "### Enlace del informe de la práctica [Enlace del informe](https://ull-esit-inf-dsi-2122.github.io/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/) de la práctica.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "tsc": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "chai": "^4.3.6",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.7.0",
+    "tsc-watch": "^5.0.3",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.4"
+  }
+}
