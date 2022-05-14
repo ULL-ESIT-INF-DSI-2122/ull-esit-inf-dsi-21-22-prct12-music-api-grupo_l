@@ -4,7 +4,10 @@
   "description": "### Enlace del informe de la práctica [Enlace del informe](https://ull-esit-inf-dsi-2122.github.io/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/) de la práctica.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "test": "mocha",
+    "doc": "typedoc",
+    "coverage": "nyc npm test && nyc report --reporter=lcov"
   },
   "repository": {
     "type": "git",
