@@ -4,7 +4,7 @@
   "description": "### Enlace del informe de la práctica [Enlace del informe](https://ull-esit-inf-dsi-2122.github.io/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/) de la práctica.",
   "main": "index.js",
   "scripts": {
-    "start": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "start": "tsc-watch --onSuccess \"node dist/server.js\"",
     "test": "mocha",
     "doc": "typedoc",
     "coverage": "nyc npm test && nyc report --reporter=lcov"
@@ -21,15 +21,20 @@
   },
   "homepage": "https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l#readme",
   "dependencies": {
+    "compression": "^1.7.4",
     "express": "^4.18.1",
     "mongodb": "^3.7.3",
+    "mongoose": "^5.13.14",
+    "morgan": "^1.10.0",
     "tsc": "^2.0.4"
   },
   "devDependencies": {
     "@types/chai": "^4.3.1",
+    "@types/compression": "^1.7.2",
     "@types/express": "^4.17.13",
     "@types/mocha": "^9.1.1",
     "@types/mongodb": "^3.6.20",
+    "@types/morgan": "^1.9.3",
     "@types/node": "^17.0.25",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",

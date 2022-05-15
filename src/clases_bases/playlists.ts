@@ -1,6 +1,15 @@
 import { Cancion } from "./cancion";
 
 /**
+ * Interfaz PlaylistInterface
+ */
+ export interface PlaylistInterface {
+	nombrePlaylist: string;
+	canciones: Cancion[];
+	duracion: string;
+	generos: string[];
+}
+/**
  * @class Playlist Clase que representa una Playlist de varias canciones de distintos géneros.
  */
 export class Playlist {
