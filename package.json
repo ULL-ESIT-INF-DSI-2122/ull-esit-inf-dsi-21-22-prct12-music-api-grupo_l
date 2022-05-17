@@ -6,6 +6,7 @@
   "scripts": {
     "heroku-postbuild": "npx tsc",
     "start": "node dist/server.js\"",
+    "dev": "tsc-watch --onSuccess \"node dist/server.js\"",
     "test": "mocha",
     "doc": "typedoc",
     "coverage": "nyc npm test && nyc report --reporter=lcov"
