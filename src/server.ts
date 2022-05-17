@@ -24,7 +24,7 @@ class Server {
         }).then(db => console.log("Database connected!"))
         .catch(db => console.error("Error connecting to Database"));
         //Port
-        this.app.set('port', process.env.PORT  || 3000);
+        this.app.set('port', process.env.PORT  || 27017);
         //Middlewares
         this.app.use(morgan('dev'));
         this.app.use(express.json());
