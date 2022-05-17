@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "npx tsc",
-    "start": "tsc-watch --onSuccess \"node dist/server.js\"",
+    "start": "node dist/server.js\"",
     "test": "mocha",
     "doc": "typedoc",
     "coverage": "nyc npm test && nyc report --reporter=lcov"
