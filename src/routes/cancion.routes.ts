@@ -123,21 +123,15 @@ class CancionRoutes {
   }
 
   deleteCancionById(req: Request, res: Response) {
-    if (!req.query.id) {
-        res.status(400).send({
-            error: 'Se necesita id de la cancion',
-        });
-    } else {
-        Cancion.findByIdAndDelete({ _id: req.query.id.toString() }).then((cancion) => {
-            if (!cancion) {
-                res.status(404).send();
-            } else {
-                res.send(cancion);
-            }
-        }).catch(() => {
-            res.status(400).send();
-        })
-    }
+    Cancion.findByIdAndDelete({ _id: req.params.id }).then((cancion) => {
+        if (!cancion) {
+            res.status(404).send();
+        } else {
+            res.send(cancion);
+        }
+    }).catch(() => {
+        res.status(400).send();
+    })
   }
 
   routes() {
