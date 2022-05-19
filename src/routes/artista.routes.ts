@@ -56,7 +56,7 @@ class ArtistaRoutes {
                 error: 'No se puede actualizar',
             });
         } else {
-            Artistas.findOneAndUpdate({ nombre: req.query.nombreArtista.toString() }, req.body, {
+            Artistas.findOneAndUpdate({ nombreArtista: req.query.nombreArtista.toString() }, req.body, {
                 new: true,
                 runValidators: true,
             }).then((artista) => {
