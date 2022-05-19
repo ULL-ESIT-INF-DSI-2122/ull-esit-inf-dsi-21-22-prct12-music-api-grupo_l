@@ -71,6 +71,33 @@ class ArtistaRoutes {
         }
     }
   }
+
+  patchArtistaById(req: Request, res: Response) {
+    const allowedUpdates = ['nombreArtista', 'grupos', 'generos', 'albumes', 'canciones', 'oyentes'];
+    const actualUpdates = Object.keys(req.body);
+    const isValidUpdate =
+        actualUpdates.every((update) => allowedUpdates.includes(update));
+
+    if (!isValidUpdate) {
+        res.status(400).send({
+            error: 'No se puede actualizar',
+        });
+    } else {
+        Artistas.findByIdAndUpdate({ _id: req.params.id.toString() }, req.body, {
+            new: true,
+            runValidators: true,
+        }).then((artista) => {
+            if (!artista) {
+                res.status(404).send();
+            } else {
+                res.send(artista);
+            }
+        }).catch((error) => {
+            res.status(400).send(error);
+        });
+    }
+    }
+
   deleteArtista(req: Request, res: Response) {
     if (!req.query.nombreArtista) {
         res.status(400).send({
@@ -88,12 +115,26 @@ class ArtistaRoutes {
         })
     }
   }
+  deleteArtistaById(req: Request, res: Response) {
+    Artistas.findByIdAndDelete({ _id: req.params.id }).then((artista) => {
+        if (!ArtistaRoutes) {
+            res.status(404).send();
+        } else {
+            res.send(artista);
+        }
+    }).catch(() => {
+        res.status(400).send();
+    })
+  }
+
   routes() {
     this.router.get('/artist', this.getArtista);
     this.router.get('/artist/:id', this.getArtistaById);
     this.router.post('/artist', this.postArtista);
     this.router.patch('/artist', this.patchArtista);
+    this.router.patch('/artist/:id', this.patchArtistaById);
     this.router.delete('/artist', this.deleteArtista);
+    this.router.delete('/artist/:id', this.deleteArtistaById);
   }
 }
 

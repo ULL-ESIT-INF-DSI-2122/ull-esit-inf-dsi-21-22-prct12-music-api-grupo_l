@@ -71,6 +71,32 @@ class PlaylistRoutes {
         }
     }
   }
+  patchPlaylistById(req: Request, res: Response) {
+    const allowedUpdates = ['nombrePlaylist', 'canciones', 'duracion', 'generos'];
+    const actualUpdates = Object.keys(req.body);
+    const isValidUpdate =
+        actualUpdates.every((update) => allowedUpdates.includes(update));
+
+    if (!isValidUpdate) {
+        res.status(400).send({
+            error: 'No se puede actualizar',
+        });
+    } else {
+        Playlist.findByIdAndUpdate({ _id: req.params.id.toString() }, req.body, {
+            new: true,
+            runValidators: true,
+        }).then((playlist) => {
+            if (!playlist) {
+                res.status(404).send();
+            } else {
+                res.send(playlist);
+            }
+        }).catch((error) => {
+            res.status(400).send(error);
+        });
+    }
+  }
+
   deletePlaylist(req: Request, res: Response) {
     if (!req.query.nombrePlaylist) {
         res.status(400).send({
@@ -88,12 +114,27 @@ class PlaylistRoutes {
         })
     }
   }
+
+  deletePlaylistById(req: Request, res: Response) {
+    Playlist.findByIdAndDelete({ _id: req.params.id }).then((playlist) => {
+        if (!playlist) {
+            res.status(404).send();
+        } else {
+            res.send(playlist);
+        }
+    }).catch(() => {
+        res.status(400).send();
+    })
+  }
+
   routes() {
     this.router.get('/playlist', this.getPlaylist);
     this.router.get('/playlist/:id', this.getPlaylistById);
     this.router.post('/playlist', this.postPlaylist);
     this.router.patch('/playlist', this.patchPlaylist);
+    this.router.patch('/playlist/:id', this.patchPlaylistById);
     this.router.delete('/playlist', this.deletePlaylist);
+    this.router.delete('/playlist/:id', this.deletePlaylistById);
   }
 }
 
