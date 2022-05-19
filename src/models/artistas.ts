@@ -27,21 +27,45 @@ const ArtistaSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true,
+    validate: (value: string) => {
+      if (!value.match(/^[A-Z]/)) {
+        throw new Error('El nombre del artista debe comenzar con una letra mayúscula');
+      }
+    },
   },
   generos: {
     type: [String],
     unique: false,
     required: true,
+    validate: (value: string[]) => {
+      value.forEach((element) => {
+        if (!element.match(/^[A-Z]/)){
+          throw new Error('El nombre del género del artista debe comenzar con una letra mayúscula');
+        }
+      })
+    },
   },
   canciones: {
     type: [String],
     unique: false,
     required: true,
+    validate: (value: string[]) => {
+      value.forEach((element) => {
+        if (!element.match(/^[A-Z]/)){
+          throw new Error('El nombre de las canciones del artista debe comenzar con una letra mayúscula');
+        }
+      })
+    },
   },
   oyentes: {
     type: Number,
     unique: false,
     required: true,
+    validate: (value: number) => {
+      if (!validator.isNumeric(`${value}`)) {
+        throw new Error('El formato de oyentes debe ser del tipo number');
+      }
+    },
   },
 });
 

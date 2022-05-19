@@ -27,22 +27,45 @@ const PlaylistSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true,
+    validate: (value: string) => {
+      if (!value.match(/^[A-Z]/)) {
+        throw new Error('El nombre de la playlist debe comenzar con una letra mayúscula');
+      }
+    },
   },
   canciones: {
     type: [String],
     unique: false,
     required: true,
+    validate: (value: string[]) => {
+      value.forEach((element) => {
+        if (!element.match(/^[A-Z]/)){
+          throw new Error('El nombre de las canciones del artista debe comenzar con una letra mayúscula');
+        }
+      })
+    },
   },
   duracion: {
     type: String,
     unique: false,
     required: true,
-    
+    validate: (value: string) => {
+      if (!value.match(/^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$/)) {
+        throw new Error('El formato de la duración debe ser horas:minutos:segundos');
+      }
+    },
   },
   generos: {
     type: [String],
     unique: false,
     required: true,
+    validate: (value: string[]) => {
+      value.forEach((element) => {
+        if (!element.match(/^[A-Z]/)){
+          throw new Error('El nombre del género de la playlist debe comenzar con una letra mayúscula');
+        }
+      })
+    },
   },
 });
 

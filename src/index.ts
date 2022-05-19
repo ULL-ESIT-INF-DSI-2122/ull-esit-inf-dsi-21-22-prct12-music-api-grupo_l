@@ -60,7 +60,7 @@ MongoClient.connect(dbURL, {
   return db.collection<PlaylistInterface>('playlist').insertOne({
     "nombrePlaylist": "PlaylistName",
     "canciones": ["Song1", "Song2"],
-    "duracion": "2:30",
+    "duracion": "2:30:20",
     "generos": ["Pop", "Rock"]
 });
 }).then((result) => {

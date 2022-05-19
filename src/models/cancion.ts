@@ -34,9 +34,9 @@ const CancionSchema = new mongoose.Schema({
     required: true,
     validate: (value: string) => {
       if (!value.match(/^[A-Z]/)) {
-        throw new Error('El nombre del artista debe comenzar con una letra mayúscula');
+        throw new Error('El nombre del autor debe comenzar con una letra mayúscula');
       } else if (!validator.isAlphanumeric(value)) {
-        throw new Error('El nombre de un artista no debe contener un caracter no alfanumérico');
+        throw new Error('El nombre del autor no debe contener un caracter no alfanumérico');
       }
     },
   },
@@ -46,7 +46,7 @@ const CancionSchema = new mongoose.Schema({
     required: true,
     validate: (value: string) => {
       if (!value.match(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/)) {
-        throw new Error('El formato de la duración debe ser minutos:segundos o ');
+        throw new Error('El formato de la duración debe ser minutos:segundos');
       }
     },
   },
@@ -57,7 +57,7 @@ const CancionSchema = new mongoose.Schema({
     validate: (value: string[]) => {
       value.forEach((element) => {
         if (!element.match(/^[A-Z]/)){
-          throw new Error('El nombre del género del artista debe comenzar con una letra mayúscula');
+          throw new Error('El nombre del género de la canción debe comenzar con una letra mayúscula');
         }
       })
     },
