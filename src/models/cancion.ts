@@ -66,8 +66,8 @@ const CancionSchema = new mongoose.Schema({
     type: Boolean,
     unique: false,
     required: true,
-    validate: (value: string) => {
-      if (!validator.isBoolean(value)) {
+    validate: (value: boolean) => {
+      if (!validator.isBoolean(`${value}`)) {
         throw new Error('El formato de single debe ser del tipo boolean');
       }
     },
@@ -76,8 +76,8 @@ const CancionSchema = new mongoose.Schema({
     type: Number,
     unique: false,
     required: true,
-    validate: (value: string) => {
-      if (!validator.isNumeric(value)) {
+    validate: (value: number) => {
+      if (!validator.isNumeric(`${value}`)) {
         throw new Error('El formato de numReproducciones debe ser del tipo number');
       }
     },
