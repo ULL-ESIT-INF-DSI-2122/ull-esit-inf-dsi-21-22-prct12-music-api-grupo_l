@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose";
+import validator from 'validator';
 import {CancionInterface} from './cancion';
 /**
  * TRABAJO GRUPO L

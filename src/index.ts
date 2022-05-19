@@ -24,7 +24,7 @@ interface NoteInterface {
     "duracion": "1:32",
     "genero": ["Pop"],
     "single": true,
-    "numReproducciones": 20000,
+    "numReproducciones": 20000
   });
 }).then((result) => {
   console.log(result);

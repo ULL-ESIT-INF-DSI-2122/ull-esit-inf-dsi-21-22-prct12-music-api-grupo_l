@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose";
+import validator from 'validator';
 import {CancionInterface} from './cancion';
 
 /**
@@ -36,6 +37,7 @@ const PlaylistSchema = new mongoose.Schema({
     type: String,
     unique: false,
     required: true,
+    
   },
   generos: {
     type: [String],

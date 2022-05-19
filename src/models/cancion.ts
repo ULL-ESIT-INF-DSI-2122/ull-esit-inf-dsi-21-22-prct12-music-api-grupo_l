@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose";
+import validator from 'validator';
 
 /**
  * TRABAJO GRUPO L
@@ -31,37 +32,57 @@ const CancionSchema = new mongoose.Schema({
     type: String,
     unique: false,
     required: true,
+    validate: (value: string) => {
+      if (!value.match(/^[A-Z]/)) {
+        throw new Error('El nombre del artista debe comenzar con una letra mayúscula');
+      } else if (!validator.isAlphanumeric(value)) {
+        throw new Error('El nombre de un artista no debe contener un caracter no alfanumérico');
+      }
+    },
   },
   duracion: {
     type: String,
     unique: false,
     required: true,
+    validate: (value: string) => {
+      if (!value.match(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/)) {
+        throw new Error('El formato de la duración debe ser minutos:segundos o ');
+      }
+    },
   },
   genero: {
     type: [String],
     unique: false,
     required: true,
+    validate: (value: string[]) => {
+      value.forEach((element) => {
+        if (!element.match(/^[A-Z]/)){
+          throw new Error('El nombre del género del artista debe comenzar con una letra mayúscula');
+        }
+      })
+    },
   },
   single: {
     type: Boolean,
     unique: false,
     required: true,
+    validate: (value: string) => {
+      if (!validator.isBoolean(value)) {
+        throw new Error('El formato de single debe ser del tipo boolean');
+      }
+    },
   },
   numReproducciones: {
     type: Number,
     unique: false,
     required: true,
+    validate: (value: string) => {
+      if (!validator.isNumeric(value)) {
+        throw new Error('El formato de numReproducciones debe ser del tipo number');
+      }
+    },
   },
 });
 
 const Cancion = mongoose.model<CancionInterface>("Cancion", CancionSchema);
 export default Cancion;
-
-
-/*export class Cancionn{
-  constructor(private nombre: string, private autor: string, private duracion: string, 
-  private genero: string[], private single: boolean, private numReproducciones: number){
-  }
-
-  }
-  */
