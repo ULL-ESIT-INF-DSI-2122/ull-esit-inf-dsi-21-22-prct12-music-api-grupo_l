@@ -77,7 +77,7 @@ class ArtistaRoutes {
             error: 'Se necesita nombre del artista',
         });
     } else {
-        Artistas.findOneAndDelete({ nombre: req.query.nombreArtista.toString() }).then((artista) => {
+        Artistas.findOneAndDelete({ nombreArtista: req.query.nombreArtista.toString() }).then((artista) => {
             if (!artista) {
                 res.status(404).send();
             } else {
