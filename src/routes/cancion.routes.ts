@@ -73,34 +73,28 @@ class CancionRoutes {
   }
 
   patchCancionById(req: Request, res: Response) {
-    if (!req.query.id) {
+    const allowedUpdates = ['nombre', 'autor', 'duracion', 'genero', 'single', 'numReproducciones'];
+    const actualUpdates = Object.keys(req.body);
+    const isValidUpdate =
+        actualUpdates.every((update) => allowedUpdates.includes(update));
+
+    if (!isValidUpdate) {
         res.status(400).send({
-            error: 'Se necesita id de la cancion',
+            error: 'No se puede actualizar',
         });
     } else {
-        const allowedUpdates = ['nombre', 'autor', 'duracion', 'genero', 'single', 'numReproducciones'];
-        const actualUpdates = Object.keys(req.body);
-        const isValidUpdate =
-            actualUpdates.every((update) => allowedUpdates.includes(update));
-
-        if (!isValidUpdate) {
-            res.status(400).send({
-                error: 'No se puede actualizar',
-            });
-        } else {
-            Cancion.findByIdAndUpdate({ _id: req.query.id.toString() }, req.body, {
-                new: true,
-                runValidators: true,
-            }).then((cancion) => {
-                if (!cancion) {
-                    res.status(404).send();
-                } else {
-                    res.send(cancion);
-                }
-            }).catch((error) => {
-                res.status(400).send(error);
-            });
-        }
+        Cancion.findByIdAndUpdate({ _id: req.params.id.toString() }, req.body, {
+            new: true,
+            runValidators: true,
+        }).then((cancion) => {
+            if (!cancion) {
+                res.status(404).send();
+            } else {
+                res.send(cancion);
+            }
+        }).catch((error) => {
+            res.status(400).send(error);
+        });
     }
   }
 
