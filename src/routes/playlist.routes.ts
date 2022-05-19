@@ -43,7 +43,7 @@ class PlaylistRoutes {
   patchPlaylist(req: Request, res: Response) {
     if (!req.query.nombrePlaylist) {
         res.status(400).send({
-            error: 'Se necesita nombre de la cancion',
+            error: 'Se necesita nombre de la playlist',
         });
     } else {
         const allowedUpdates = ['nombrePlaylist', 'canciones', 'duracion', 'generos'];

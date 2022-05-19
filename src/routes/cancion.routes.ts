@@ -71,6 +71,39 @@ class CancionRoutes {
         }
     }
   }
+
+  patchCancionById(req: Request, res: Response) {
+    if (!req.query.id) {
+        res.status(400).send({
+            error: 'Se necesita id de la cancion',
+        });
+    } else {
+        const allowedUpdates = ['nombre', 'autor', 'duracion', 'genero', 'single', 'numReproducciones'];
+        const actualUpdates = Object.keys(req.body);
+        const isValidUpdate =
+            actualUpdates.every((update) => allowedUpdates.includes(update));
+
+        if (!isValidUpdate) {
+            res.status(400).send({
+                error: 'No se puede actualizar',
+            });
+        } else {
+            Cancion.findByIdAndUpdate({ _id: req.query.id.toString() }, req.body, {
+                new: true,
+                runValidators: true,
+            }).then((cancion) => {
+                if (!cancion) {
+                    res.status(404).send();
+                } else {
+                    res.send(cancion);
+                }
+            }).catch((error) => {
+                res.status(400).send(error);
+            });
+        }
+    }
+  }
+
   deleteCancion(req: Request, res: Response) {
     if (!req.query.nombre) {
         res.status(400).send({
@@ -88,12 +121,33 @@ class CancionRoutes {
         })
     }
   }
+
+  deleteCancionById(req: Request, res: Response) {
+    if (!req.query.id) {
+        res.status(400).send({
+            error: 'Se necesita id de la cancion',
+        });
+    } else {
+        Cancion.findByIdAndDelete({ _id: req.query.id.toString() }).then((cancion) => {
+            if (!cancion) {
+                res.status(404).send();
+            } else {
+                res.send(cancion);
+            }
+        }).catch(() => {
+            res.status(400).send();
+        })
+    }
+  }
+
   routes() {
     this.router.get('/song', this.getCancion);
     this.router.get('/song/:id', this.getCancionById);
     this.router.post('/song', this.postCancion);
     this.router.patch('/song', this.patchCancion);
+    this.router.patch('/song/:id', this.patchCancionById);
     this.router.delete('/song', this.deleteCancion);
+    this.router.delete('/song/:id', this.deleteCancionById);
   }
 }
 
