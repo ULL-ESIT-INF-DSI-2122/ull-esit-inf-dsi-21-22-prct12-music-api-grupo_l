@@ -42,8 +42,6 @@ Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediant
     - Índice de rutas
     - Rutas de los modelos
 - Despliegue
-    - MongoDB Atlas
-    - Heroku
 - Modo de uso
 - Controles de calidad con Sonar Cloud
 - Informe con Github Pages
@@ -255,7 +253,29 @@ routes() {
 
 Y así, se efectúa la misma lógica para cada uno de los ficheros de rutas de artistas y playlist. Sólo que en el método routes() se gestiona cada petición en una ruta de la API distinta. En el caso de canción es en **/song**, en el caso de artista en **/artist** y en el caso de playlist en **/playlist**.
 
+## Despliegue
 
+El proyecto se ha desarrollado en mediante el uso de [MongoBD Atlas](https://www.mongodb.com/es), que es un servicio en la nube para bases de datos que posibilita crear bases de datos las cuales son expuestas online y por ende, permite conectar nuestras aplicaciones. Además, para desplegar nuestra API, nos apoyamos en [Heroku](https://id.heroku.com/login) que es una herramienta que facilita a los desarrolladores el testeo y/o análisis del comportamiento de las APIs en un entorno de pruebas.
+
+
+## Modo de uso
+
+En este apartado se pasará a explicar el modo de uso de la API, teniendo en cuenta el despliegue con MongoDB Atlas y Heroku. Primero, para desplegar la aplicación en Heroku, simplemente, se debe empujar los cambios al remoto añadido durante el proceso de creación de la aplicación, mediante el comando:
+
+> git push heroku main
+
+Luego se comprueban los logs correspondientes a nuestra aplicación, con el comando:
+
+> heroku logs | tail -10f
+
+Tras ello, se tendrá todo listo para la ejecución de la API, haciendo uso de un cliente como el que proporciona la extensión de Thunder Client. Para ello se introduce la URL de conexión en la que se ha desplegado el API y con la que se ejecutarán las distintas peticiones antes nombradas.
+
+A su vez en el desplegado de la aplicación se guardó como colecciones Ingredients, Courses y Menus. Y cada una de las colecciones consta de una serie de peticiones guardadas para su invocación. Mostrándose tal que:
+
+IMAGEN DE LAS COLECCIONES
+
+
+## Controles de calidad con Sonar Cloud
 
 
 ## Informe con Github Pages
