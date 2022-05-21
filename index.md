@@ -204,15 +204,43 @@ const Playlist = mongoose.model<CancionInterface>("Playlist", PlaylistSchema);
 export default Playlist;
 ```
 
+## Rutas de la API
+
+Para poder trabajar correctamente con la API, deben definirse las rutas en las que se podrán realizar peticiones. Para ello, se ha definido un índice de rutas en el fichero index.routes.ts y se ha importado en el servidor.
+
+### Índice de rutas
+
+En el fichero índice de las rutas se ha definido una clase **ApiRoutes**. Esta clase hace uso de un objeto Router para volver accesibles todas las rutas de la aplicación.
+
+Define un mensaje de respuesta al hacer una petición a la raíz, indicando al usuario dónde se encuentra la API. Además, es aquí donde se importan y asignan a este Router todos los archivos de routas de la API, en este caso, las rutas de canciones, artistas y playlist. Esto se hace en el método **routes()**:
+
+```typescript
+routes() {
+    this.router.get('/', (req, res) => {
+        res.send("Para usar la API situate en: /song /artist /playlist");
+    })
+    this.router.use(cancionRoutes);
+    this.router.use(artistaRoutes);
+    this.router.use(playlistRoutes);
+}
+```
 
 
+### Rutas de los modelos
 
+Para cada tipo de modelo se ha creado un archivo de rutas para gestionar las peticiones. Todos tienen un comportamiento muy similar, por lo que se usará como ejemplo el archivo de cancion.
 
+En el fichero ingredients.routes.ts se almacena la ruta en la que se pueden hacer peticiones relacionadas a los ingredientes. Es aquí donde se definen los métodos encargados de procesar cada tipo de petición, y devolver la respuesta correspondiente. Todo esto se hace desde la clase IngredientRoutes, haciendo uso de un objeto Router igual que en index.
 
+Para esta práctica se han implementado 4 tipos de peticiones diferentes:
 
+GET
+POST
+PATCH
+DELETE
+Dentro de las peticiones GET, además, se han implementado varias opciones: obtener todos los ingredientes, obtener un ingrediente por ID u obtenerlo por título.
 
-
-
+El método routes() es el encargado de gestionar las peticiones. Para mantener el código más organizado, existe un método independiente encargado de gestionar cada tipo de petición, y routes simplemente deriva la petición al método correspondiente. Se hace de la siguiente manera:
 
 
 ## Referencias 
