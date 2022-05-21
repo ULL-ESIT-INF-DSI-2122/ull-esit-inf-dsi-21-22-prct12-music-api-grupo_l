@@ -47,6 +47,7 @@ Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediant
 - Modo de uso
 - Controles de calidad con Sonar Cloud
 - Informe con Github Pages
+- Referencias
 - Conclusión
 
 
@@ -230,17 +231,40 @@ routes() {
 
 Para cada tipo de modelo se ha creado un archivo de rutas para gestionar las peticiones. Todos tienen un comportamiento muy similar, por lo que se usará como ejemplo el archivo de cancion.
 
-En el fichero ingredients.routes.ts se almacena la ruta en la que se pueden hacer peticiones relacionadas a los ingredientes. Es aquí donde se definen los métodos encargados de procesar cada tipo de petición, y devolver la respuesta correspondiente. Todo esto se hace desde la clase IngredientRoutes, haciendo uso de un objeto Router igual que en index.
+En el fichero **cancion.routes.ts** se almacena la ruta en la que se pueden hacer peticiones relacionadas a las canciones de la API. Es aquí donde se definen los métodos encargados de procesar cada tipo de petición, y devolver la respuesta correspondiente. Todo esto se hace desde la clase CancionRoutes, haciendo uso de un objeto Router igual que en index.
 
-Para esta práctica se han implementado 4 tipos de peticiones diferentes:
+Para esta práctica se han implementado 7 tipos de peticiones diferentes y a la vez similares, ya que 4 son los básicos métodos **get**, **post**, **patch** y **delete**, y los otros 3 son variantes de ellos, ya que se realizan buscando, actualizando o borrando por id de la canción en vez de por su nombre. Estos métodos son **getCancionById()**, **patchCancionById** y **deleteCancionById** respectivamente.
 
-GET
-POST
-PATCH
-DELETE
-Dentro de las peticiones GET, además, se han implementado varias opciones: obtener todos los ingredientes, obtener un ingrediente por ID u obtenerlo por título.
+Todos los métodos tienen una petición (Request) y una respuesta a la misma (Response). Si se consigue satisfactoriamente buscar, añadir, actualizar o borrar una cancion, en este caso, entonces se muestra una respuesta de aceptación del tipo 200 con **res.send()** o se muestra dicha canción. En caso de error se muestra de respuesta un mensaje tipo 404. Y si el caso es fallo sel servidor una de tipo 500.
 
-El método routes() es el encargado de gestionar las peticiones. Para mantener el código más organizado, existe un método independiente encargado de gestionar cada tipo de petición, y routes simplemente deriva la petición al método correspondiente. Se hace de la siguiente manera:
+Dentro de cada método **getCancion()**, **postCancion()**, **patchCancion()** y **deleteCancion()** las peticiones son mediante **req.query.nombre**. Mientras que en los casos de los métodos que busquen, actualicen o borren la canción por el id, entonces la petición es mediante **req.params.id** de la canción.
+
+Finalmente, el método routes() es el encargado de gestionar las peticiones. Para mantener el código más organizado, existe un método independiente encargado de gestionar cada tipo de petición, y routes simplemente deriva la petición al método correspondiente. Se hace de la siguiente manera:
+
+```typescript
+routes() {
+    this.router.get('/song', this.getCancion);
+    this.router.get('/song/:id', this.getCancionById);
+    this.router.post('/song', this.postCancion);
+    this.router.patch('/song', this.patchCancion);
+    this.router.patch('/song/:id', this.patchCancionById);
+    this.router.delete('/song', this.deleteCancion);
+    this.router.delete('/song/:id', this.deleteCancionById);
+}
+```
+
+Y así, se efectúa la misma lógica para cada uno de los ficheros de rutas de artistas y playlist. Sólo que en el método routes() se gestiona cada petición en una ruta de la API distinta. En el caso de canción es en **/song**, en el caso de artista en **/artist** y en el caso de playlist en **/playlist**.
+
+
+
+
+## Informe con Github Pages
+
+El último paso consiste en implementar GitHub Pages desde el repositorio. Para hacerlo, se accede a la sección “settings” en el repositorio en GitHub. Una vez allí, en la zona “GitHub Pages” se hace lo siguiente:
+
+[x] Habilitar GitHub pages en el repositorio
+[x] Seleccionar la rama de trabajo (en este caso, master) y la carpeta raíz (en este caso, /docs, ya que allí se encuentra el archivo index.md) y marcar save
+[x] Elegir un tema para la página. Una vez hecho, solo queda esperar unos segundos y acceder a la página que aparece para ver la web.
 
 
 ## Referencias 
@@ -262,6 +286,8 @@ Herramienta de análisis de encubrimiento del código.
 
 * **[GitHub Actions](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo_l/actions)**
 Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediante los commits que se hagan. Se hace uso de ``SonarCloud Workflow``, ``CoverAlls Workflow`` entre otros.  
+
+
 
 ## Conclusiones
 Al principio del desarrollo del proyecto, se ha utilizado la herramienta o extensión [Liveshare](https://docs.microsoft.com/es-es/visualstudio/liveshare/). Puesto a que nos surgieron varios errores a la hora de realizar nuevo código, ya que la versión de browser funcionaba mejor que la propia del Visual Studio Code. Por ello, descartamos el seguir usándola.
