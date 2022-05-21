@@ -290,19 +290,6 @@ Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediant
 
 
 ## Conclusiones
-Al principio del desarrollo del proyecto, se ha utilizado la herramienta o extensión [Liveshare](https://docs.microsoft.com/es-es/visualstudio/liveshare/). Puesto a que nos surgieron varios errores a la hora de realizar nuevo código, ya que la versión de browser funcionaba mejor que la propia del Visual Studio Code. Por ello, descartamos el seguir usándola.
+Como hemos podido comprobar durante la realización de esta práctica, la creación y configuración de APIs con NodeJS y un servidor en express se vuelve bastante sencillo, dejando la mayor complicación en la forma de gestionar las peticiones.
 
-![Imagen liveshare](./assets/images/liveshare.png)
-
-*Imagen de LiveShare*
-
-El mayor problema surgió a la hora de realizar los writes de la base de datos, ya que nuestro código estaba estructurado de manera que las clases accedían entre ellas de tal manera que nos notificaba de un error de tipo cíclico.
-```“TypeError: Converting circular structure to JSON” ```
-
-Para solucionar el problema, se tuvo que modificar todo el código sobre las clases ya avanzadas para solventarlo. 
-
-![Imagen guión práctica](./assets/images/guion.png)
-
-Como podemos observar en la imagen anterior, en los apartados remarcados se pide información de la otra clase. En primera instancia, el atributo **autores** de nuestra clase álbum era del tipo Grupo o Artista, por lo que se tuvo que cambiar a tipo string o Artista, para así arreglar el error circular.
-
-La práctica en si ha sido muy laboriosa, pero como parte positiva nombrar que el grupo aprendió nuevas características para este lenguaje de programación como fueron las herramientas **Inquirer** y **lowdb** para la creación de menús y bases de datos.
+El uso de MongoDB Atlas y de Heroku, además, vuelve muy simple e intuitivo el proceso de despliegue y puesta en producción, y permite manejar de una forma sencilla las APIs REST, almacenando su información en bases de datos rápidas y eficaces.
