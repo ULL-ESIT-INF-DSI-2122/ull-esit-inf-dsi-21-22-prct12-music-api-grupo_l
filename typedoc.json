@@ -3,7 +3,11 @@
       "./src/index.ts",
       "./src/clases_bases/artistas.ts",
       "./src/clases_bases/cancion.ts",
-      "./src/clases_bases/playlists.ts"
+      "./src/clases_bases/playlists.ts",
+      "./src/routes/playlists.routes.ts",
+      "./src/routes/artista.routes.ts",
+      "./src/routes/index.routes.ts",
+      "./src/routes/cancion.routes.ts"
   ],
   "out": "./docs"
 }
