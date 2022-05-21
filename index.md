@@ -146,12 +146,63 @@ const Cancion = mongoose.model<CancionInterface>("Cancion", CancionSchema);
 export default Cancion;
 ```
 
+### Artista
+
+El siguiente modelo que se va a analizar es el correspondiente a artistas.ts. La interfaz tendrá los atributos necesarios para definir un artista, un nombre del artista, géneros, canciones del artista y el número de oyentes. Siguiendo una interfaz tal que:
+
+```typescript
+ export interface ArtistasInterface {
+	nombreArtista: string,
+	generos: string[],
+	canciones: CancionInterface[],
+	oyentes: number;
+}
+```
+
+A continuación, estos serán desplegados en un Schema de mongoose. Dentro del Schema denotado por **ArtistaSchema** se asignarán los validadores correspondientes en caso de ser necesario. Así como en canción se usó validadores ya conocidos:
 
 
+[x] **nombreArtista**, **generos**: En estos casos el validador comprueba que empiece por letra mayúscula.
+[x] **canciones**: Como es un array de string, se recorre y se comprueba que estos nombres empiecen por mayúscula.
+[x] **oyentes**: En el caso de los oyentes se comprueba que este tipo sea de tipo number con **isNumeric()**.
+
+Finalmente se define el modelo con Mongoose que se exportará del artista con dicho esquema. Y se exportará para su posterior utilización.
+
+```typescript
+const Artistas = mongoose.model<ArtistasInterface>("Artista", ArtistaSchema);
+export default Artistas;
+```
+
+### Playlist
+
+El último modelo que se va a analizar es el correspondiente a playlist.ts. La interfaz tendrá los atributos necesarios para definir una playlist, un nombre de la playlist, las canciones que contiene, la duración total y los géneros. Siguiendo una interfaz tal que:
+
+```typescript
+export interface PlaylistInterface {
+	nombrePlaylist: string;
+	canciones: CancionInterface[];
+	duracion: string;
+	generos: string[];
+}
+```
+
+A continuación, estos serán desplegados en un Schema de mongoose. Dentro del Schema denotado por **PlaylistSchema** se asignarán los validadores correspondientes en caso de ser necesario. Así como en canción y artistas se usó validadores ya conocidos:
 
 
+[x] **nombrePlaylist**: En este caso el validador comprueba que empiece por letra mayúscula.
+[x] **canciones** y **generos**: Como son arrays de string, se recorren y se comprueba que estos nombres empiecen por mayúscula.
+[x] **duracion**: Sigue la lógica del atributo duración de Canción, pero como una playlist puede contener varias canciones entonces la duración total es mayor. Por ello se ideó una nueva expresión regular que cumpla con la estructura de "2:35", "2:40:10" o "05:10". Para que así consiga duraciones incluso de horas, minutos y segundos.
 
+```typescript
+^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$
+```
 
+Finalmente se define el modelo con Mongoose que se exportará de la playlist con dicho esquema. Y se exportará para su posterior utilización.
+
+```typescript
+const Playlist = mongoose.model<CancionInterface>("Playlist", PlaylistSchema);
+export default Playlist;
+```
 
 
 
