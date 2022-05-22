@@ -240,11 +240,15 @@ El proyecto se ha desarrollado en mediante el uso de [MongoBD Atlas](https://www
 
 En este apartado se pasará a explicar el modo de uso de la API, teniendo en cuenta el despliegue con MongoDB Atlas y Heroku. Primero, para desplegar la aplicación en Heroku, simplemente, se debe empujar los cambios al remoto añadido durante el proceso de creación de la aplicación, mediante el comando:
 
-> git push heroku main
+```code
+git push heroku main
+``` 
 
 Luego se comprueban los logs correspondientes a nuestra aplicación, con el comando:
 
-> heroku logs | tail -10f
+```code
+heroku logs | tail -10f
+```
 
 Tras ello, se tendrá todo listo para la ejecución de la API, haciendo uso de un cliente como el que proporciona la extensión de Thunder Client. Para ello se introduce la URL de conexión en la que se ha desplegado el API y con la que se ejecutarán las distintas peticiones antes nombradas.
 
@@ -254,12 +258,10 @@ A su vez en el desplegado de la aplicación se guardó como colección API REST,
 
 Se pasará a mostrar ejemplos de ejecución de las peticiones para song, artist y playlist. Uno para cada para ver varios ejemplos.
 
-### POST
+### POST (SONG)
 
-En este apartado se añadirá un request que se llama POST para song.
+En este apartado se añadirá un request que se llama POST para canción.
 
-#### SONG
- 
 Se añadirá una nueva canción que es **SongName6** con sus atributos correspondientes. Generando así un código de acierto (200) de que se creó correctamente y asignándole un id específico.
 
 ![postSong](./assets/images/postCancion.PNG)
