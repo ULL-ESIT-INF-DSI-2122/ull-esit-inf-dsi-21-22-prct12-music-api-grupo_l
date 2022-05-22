@@ -1,10 +1,3 @@
-# Informe Práctica 12
-TODO:
-- Informe
-- Video
-- Collection del Thunder Client
-
-
 # Informe Práctica 12 - API Node/Express de gestión de información musical
 
 ## Desarrollo de Sistemas Informáticos
@@ -15,20 +8,6 @@ TODO:
 - Héctor Abreu Acosta ([alu0101068855@ull.edu.es](alu0101068855@ull.edu.es))
 - Marcos Padilla Herrera ([alu0101045177@ull.edu.es](alu0101045177@ull.edu.es))
 - Andrea Calero Caro ([alu0101202952@ull.edu.es](alu0101202952@ull.edu.es))
-
-## Herramientas para el Desarrollo de la Práctica.
-Se ha hecho uso de una series de herramientas para complementar el desarrollo de la práctica para llevar a cabo una práctica más sólida y profesional.  
-* **[Typedoc](https://typedoc.org/).**
-TypeDoc es un generador de documentación mediante los propios comentarios del código.
-![Documentacion generada con TypeDoc apartir de los comentarios](./assets/images/typedoc-example.PNG)  
-* **[CoverAlls](https://coveralls.io/)**
-Herramienta de análisis de encubrimiento del código.
-![Página de Coveralls para el repositorio trabajado](./assets/images/coveralls-sample.PNG)
-* **[GitHub Actions]()**
-Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediante los commits que se hagan. Se hace uso de ``SonarCloud Workflow``, ``CoverAlls Workflow`` entre otros.  
-![Muestra de distintos WorkFlows de GitHub Actions](./assets/images/GHActions-sample.PNG)
-
-
 
 ## Índice
 
@@ -44,7 +23,6 @@ Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediant
 - Despliegue
 - Modo de uso
 - Controles de calidad con Sonar Cloud
-- Informe con Github Pages
 - Referencias
 - Conclusión
 
@@ -55,7 +33,7 @@ Para el desarrollo de esta práctica se ha contado con un fichero que tendrá el
 
 Por un lado el directorio **models** que contiene 3 ficheros: **artistas.ts**, **cancion.ts** y **playlist.ts**, cada fichero tendrá una interfaz, esquema y modelo asociado, con la ayuda del Módulo **_Mongoose_** y sus respectivos validadores del paquete **_Validator_**. 
 
-Por otro lado el directorio **routes** que contiene 4 ficheros: **artista.routes.ts**, **cancion.routes.ts**, **playlist.routes.ts** e **index.routes.ts**. En estos ficheros se dan definido las rutas en las que se podrán realizar peticiones. Para poder trabajar correctamente con la API, además se añadió un índice de rutas en el fichero **index.routes.ts** y se ha importado en el servidor.
+Por otro lado el directorio **routes** que contiene 4 ficheros: **artista.routes.ts**, **cancion.routes.ts**, **playlist.routes.ts** e **index.routes.ts**. En estos ficheros se han definido las rutas en las que se podrán realizar peticiones. Para poder trabajar correctamente con la API, además se añadió un índice de rutas en el fichero **index.routes.ts** y se ha importado en el servidor.
 
 
 
@@ -276,19 +254,8 @@ IMAGEN DE LAS COLECCIONES
 
 Se pasará a mostrar ejemplos de ejecución de las peticiones.
 
-###
-
-
 ## Controles de calidad con Sonar Cloud
 
-
-## Informe con Github Pages
-
-El último paso consiste en implementar GitHub Pages desde el repositorio. Para hacerlo, se accede a la sección “settings” en el repositorio en GitHub. Una vez allí, en la zona “GitHub Pages” se hace lo siguiente:
-
-[x] Habilitar GitHub pages en el repositorio
-[x] Seleccionar la rama de trabajo (en este caso, master) y la carpeta raíz (en este caso, /docs, ya que allí se encuentra el archivo index.md) y marcar save
-[x] Elegir un tema para la página. Una vez hecho, solo queda esperar unos segundos y acceder a la página que aparece para ver la web.
 
 
 ## Referencias 
