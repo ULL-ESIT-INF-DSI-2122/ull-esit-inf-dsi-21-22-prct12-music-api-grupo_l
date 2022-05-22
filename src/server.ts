@@ -4,7 +4,10 @@ import mongoose from 'mongoose'
 import compression from 'compression'
 
 import apiRoutes from './routes/index.routes'
-
+/**
+ * @class Server encargado de gestionar el funcionamiento el servidor 
+ * en express sobre el que funcionará la API
+ */
 class Server {
     public app: express.Application;
 
