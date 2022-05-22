@@ -256,7 +256,7 @@ A su vez en el desplegado de la aplicación se guardó como colección API REST,
 
 ![colecciones](./assets/images/esquemaCollection.PNG)
 
-Se pasará a mostrar ejemplos de ejecución de las peticiones para song, artist y playlist. Uno para cada para ver varios ejemplos.
+Se pasará a mostrar ejemplos de ejecución de las peticiones para song, artist y playlist. 
 
 ### POST (SONG)
 
@@ -267,66 +267,54 @@ Se añadirá una nueva canción que es **SongName6** con sus atributos correspon
 ![postSong](./assets/images/postCancion.PNG)
 
 
-### GET QUERY
+### GET QUERY (ARTIST)
 
-En este apartado se añadirá un request que se llama GET, GET QUERY ya que se basa en buscar por el nombre de artist.
-
-#### ARTIST
+En este apartado se añadirá un request que se llama GET, GET QUERY ya que se basa en buscar por el nombre del artista.
 
 Se buscará por el nombre del artista con nombre **ArtistName**. Y esta petición tras generar un código de acierto (200) de que se encontró el artista con ese nombre, se muestra los atributos que contiene como los géneros, canciones, oyentes, etc.
 
 ![getArtist](./assets/images/getArtista.PNG)
 
 
-### GET ID
+### GET ID (PLAYLIST)
 
-En este apartado se añadirá un request que se llama GET ID, ya que se basa como el GET QUERY en buscar, pero esta vez por el id de playlist.
-
-#### PLAYLIST
+En este apartado se añadirá un request que se llama GET ID, ya que se basa como el GET QUERY en buscar, pero esta vez por el id de la playlist.
 
 Se buscará por el id de la playlist con id **62890dfc14b74d00169854a3**. Y esta petición tras generar un código de acierto (200) de que se encontró la playlist con ese id, se muestra los atributos que contiene como los géneros, canciones, duración, etc.
 
 ![getIDPlaylist](./assets/images/getIDPlaylist.PNG)
 
 
-### PATCH QUERY
+### PATCH QUERY (SONG)
 
-En este apartado se añadirá un request que se llama PATCH, PATCH QUERY ya que se basa en actualizar por el nombre de song.
-
-#### SONG
+En este apartado se añadirá un request que se llama PATCH, PATCH QUERY ya que se basa en actualizar por el nombre de la canción.
 
 Se actualizará por el nombre de la canción, en este caso con nombre **SongName** y se modificará en el body del query poniéndole como nuevo nombre de la canción **SongNameModi** y como nombre del autor **AuthorNameModi**. Y esta petición tras generar un código de acierto (200) de que se actualizó la canción con ese nombre, se muestra los atributos que contiene como los géneros, el id, y los nuevos atributos modificados.
 
 ![patchSong](./assets/images/pathCancion.PNG)
 
 
-### PATCH ID
+### PATCH ID (ARTIST)
 
-En este apartado se añadirá un request que se llama PATCH ID, que se basa en actualizar por el id de artist.
-
-#### ARTIST
+En este apartado se añadirá un request que se llama PATCH ID, que se basa en actualizar por el id del artista.
 
 Se actualizará por el id del artista, en este caso con id **62890d2914b74d0016985494** y se modificará en el body del query poniéndole como nuevo nombre del artista **ArtistNameModificado** y en numero de oyentes añadiéndole al final un 9. Con esto se muestra que en las peticiones PATCH se pueden modificar cualquier atributo. Y esta petición tras generar un código de acierto (200) de que se actualizó el artista con ese id, se muestra los atributos y los nuevos que fueron modificados.
 
 ![patchIDArtist](./assets/images/pathIDArtista.PNG)
 
 
-### DELETE QUERY
+### DELETE QUERY (PLAYLIST)
 
 En este apartado se añadirá un request que se llama DELETE, DELETE QUERY que se basa en borrar por el nombre de la playlist.
-
-#### PLAYLIST
 
 Se borrará por el nombre de la playlist, en este caso con nombre **PlaylistName** y se borrará. Y esta petición generará un código de acierto (200) de que se eliminó la playlist con ese nombre y sus atributos correspondientes.
 
 ![deletePlaylist](./assets/images/DeletePlaylist.PNG)
 
 
-### DELETE ID
+### DELETE ID (SONG)
 
 En este apartado se añadirá un request que se llama DELETE ID, en borrar por el id de la canción.
-
-#### SONG
 
 Se borrará por el id de la canción, en este caso con id **62890df614b74d001698549f**, este id corresponde a la canción que se modificó en el PATCH QUERY de este informe y se llama **SongNameModi**. Y esta petición generará un código de acierto (200) de que se eliminó la canción con ese id y sus atributos correspondientes.
 
