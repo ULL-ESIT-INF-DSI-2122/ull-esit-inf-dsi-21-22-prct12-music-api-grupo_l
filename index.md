@@ -274,6 +274,10 @@ A su vez en el desplegado de la aplicación se guardó como colecciones Ingredie
 
 IMAGEN DE LAS COLECCIONES
 
+Se pasará a mostrar ejemplos de ejecución de las peticiones.
+
+###
+
 
 ## Controles de calidad con Sonar Cloud
 
