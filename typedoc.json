@@ -1,13 +1,13 @@
 {
   "entryPoints": [
-      "./src/index.ts",
-      "./src/clases_bases/artistas.ts",
-      "./src/clases_bases/cancion.ts",
-      "./src/clases_bases/playlists.ts",
-      "./src/routes/playlists.routes.ts",
+      "./src/models/artistas.ts",
+      "./src/models/cancion.ts",
+      "./src/models/playlist.ts",
+      "./src/routes/playlist.routes.ts",
       "./src/routes/artista.routes.ts",
       "./src/routes/index.routes.ts",
-      "./src/routes/cancion.routes.ts"
+      "./src/routes/cancion.routes.ts",
+      "./src/server.ts"
   ],
   "out": "./docs"
 }
