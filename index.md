@@ -248,7 +248,7 @@ Luego se comprueban los logs correspondientes a nuestra aplicación, con el coma
 
 Tras ello, se tendrá todo listo para la ejecución de la API, haciendo uso de un cliente como el que proporciona la extensión de Thunder Client. Para ello se introduce la URL de conexión en la que se ha desplegado el API y con la que se ejecutarán las distintas peticiones antes nombradas.
 
-A su vez en el desplegado de la aplicación se guardó como colección API REST, dentro de esta colleción se añadieron como directorios: POST, PATCH ID, PATCH QUERY, GET ID, GET QUERY, DELETE ID y DELETE QUERY. A su vez, cada directorio se hace dicha petición para song, artist y playlist. Mostrándose tal que:
+A su vez en el desplegado de la aplicación se guardó como colección API REST, dentro de esta colleción se añadieron como directorios: POST, PATCH ID, PATCH QUERY, GET ID, GET QUERY, DELETE ID y DELETE QUERY. A su vez, en cada directorio se hace dicha petición para song, artist y playlist. Mostrándose tal que:
 
 ![colecciones](./assets/images/esquemaCollection.PNG)
 
