@@ -25,9 +25,6 @@ jobs:
       - name: Installing dependencies
         run: npm install 
 
-      - name: Generating coverage information
-        run: npm run coverage
-
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
