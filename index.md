@@ -341,7 +341,7 @@ La web Sonar Cloud permite hacer un seguimiento a la calidad del código, tenien
 
 Se han añadido esas insignias a la documentación del código.
 
-![SonarCloud]()
+[![Sonar-Cloud](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/actions/workflows/sonarcloud.yml)
 
 ## Referencias 
 
@@ -360,8 +360,7 @@ Herramienta para el encubrimiento del código implementado.
 * **[CoverAlls](https://coveralls.io/)**
 Herramienta de análisis de encubrimiento del código.
 
-* **[GitHub Actions](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo_l/actions)**
-Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediante los commits que se hagan. Se hace uso de ``SonarCloud Workflow``, ``CoverAlls Workflow`` entre otros.  
+[![Sonar-Cloud](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/actions/workflows/sonarcloud.yml)
 
 
 
