@@ -330,9 +330,18 @@ Se borrará por el id de la canción, en este caso con id **62890df614b74d001698
 
 ![deleteIDCancion](./assets/images/deleteIDCancion.PNG)
 
+
+Finalizando este modo de uso se exportó el thunder-collection (en formato JSON) en la raíz del proyecto, para su importación y comprobación del uso de estas peticiones ya nombradas.
+
+
+
 ## Controles de calidad con Sonar Cloud
 
+La web Sonar Cloud permite hacer un seguimiento a la calidad del código, teniendo en cuenta diversos factores. Para esta práctica, se ha hecho especial hincapié a la calidad, la mantenibilidad, los bugs y la seguridad, aunque SonarCloud incluye muchos más parámetros.
 
+Se han añadido esas insignias a la documentación del código.
+
+![SonarCloud]()
 
 ## Referencias 
 

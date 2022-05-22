@@ -1,7 +1,9 @@
 ## Práctica 12: API Node/Express de gestión de información musical
 
-### Enlace del informe de la práctica
+### Enlaces
+
 [Enlace del informe](https://ull-esit-inf-dsi-2122.github.io/ull-esit-inf-dsi-21-22-prct12-music-api-grupo_l/) de la práctica.
+
 
 
 ### Componentes del grupo L:
